@@ -11,12 +11,12 @@
     "test": "yarn && electron-builder && dist/electron*.AppImage"
   },
   "devDependencies": {
-    "electron": "^29.2.0",
+    "electron": "^31.3.1",
     "electron-builder": "^24.13.3"
   },
   "dependencies": {
     "@sentry/electron": "^5.3.0",
-    "electron-updater": "^6.1.8"
+    "electron-updater": "^6.2.1"
   },
   "build": {
     "publish": {
