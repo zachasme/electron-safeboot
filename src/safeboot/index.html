@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      *, *::after, *::before { box-sizing: border-box }
+      :root { color-scheme: dark }
+      body {
+        min-height: 100dvh;
+        margin: 0;
+        padding-inline: 50px;
+
+        font-family: system-ui;
+        font-size: 30px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 2em;
+      }
+      p { margin: 0 }
+      #error { color: orange }
+      #launch {
+        color: black;
+        background: orange;
+        border: none; 
+        border-radius: 5px;
+        padding: 1ch 2ch;
+        cursor: pointer;
+        font-size: 0.6em;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="status"></p>
+    <p id="error"></p>
+    <button id="launch" hidden>Launch anyway</button>
+  </body>
+  <script type="text/javascript">
+    const status = document.getElementById("status");
+    const error = document.getElementById("error");
+    const launch = document.getElementById("launch");
+  
+    bridge.onStatus(value => status.textContent = value)
+    bridge.onError(value => {
+      error.textContent = value
+      launch.hidden = false
+    })
+    launch.addEventListener("click", () => bridge.launch())
+  </script>
+</html>

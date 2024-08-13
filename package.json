@@ -1,0 +1,31 @@
+{
+  "name": "electron-safeboot",
+  "version": "1.0.0",
+  "main": "src/safeboot.js",
+  "repository": "https://github.com/zachasme/electron-safeboot.git",
+  "author": "Zacharias Knudsen <z@chari.as>",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "release": "yarn && electron-builder",
+    "test": "yarn && electron-builder && dist/electron*.AppImage"
+  },
+  "devDependencies": {
+    "electron": "^29.2.0",
+    "electron-builder": "^24.13.3"
+  },
+  "dependencies": {
+    "@sentry/electron": "^5.3.0",
+    "electron-updater": "^6.1.8"
+  },
+  "build": {
+    "publish": {
+      "provider": "github",
+      "owner": "tealmedical",
+      "repo": "electron-safe-boot"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  }
+}
